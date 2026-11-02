@@ -42,10 +42,19 @@ export class PipelineOrchestrator {
         throw new Error(`Project ${projectId} not found in store.`);
       }
 
-      // Ensure workspaces directory
-      const workspacesRoot = path.join(process.cwd(), 'workspaces');
-      if (!fs.existsSync(workspacesRoot)) {
-        fs.mkdirSync(workspacesRoot, { recursive: true });
+      // Ensure workspaces directory with fallback
+      let workspacesRoot = path.join(process.cwd(), 'workspaces');
+      try {
+        if (!fs.existsSync(workspacesRoot)) {
+          fs.mkdirSync(workspacesRoot, { recursive: true });
+        }
+      } catch (dirErr) {
+        // Fallback to temp directory
+        const os = require('os');
+        workspacesRoot = path.join(os.tmpdir(), 'voxbuild-workspaces');
+        if (!fs.existsSync(workspacesRoot)) {
+          fs.mkdirSync(workspacesRoot, { recursive: true });
+        }
       }
 
       const workspacePath = path.join(workspacesRoot, project.id);
