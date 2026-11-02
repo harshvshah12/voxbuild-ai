@@ -13,17 +13,19 @@ export type ProjectStatus =
 
 export interface CallRecord {
   id: string;
-  callerNumber: string;
+  callerNumber?: string;
   startedAt: string;
   endedAt?: string;
   durationSeconds: number;
-  status: 'active' | 'completed' | 'abandoned';
-  provider: 'sarvam-byot' | 'twilio' | 'exotel' | 'web-terminal';
+  status: 'active' | 'completed' | 'abandoned' | 'COMPLETED';
+  provider: 'sarvam-byot' | 'twilio' | 'exotel' | 'web-terminal' | 'browser-webaudio';
+  language?: string;
   languageDetected?: string;
   audioRecordingUrl?: string;
-  transcript: TranscriptMessage[];
+  transcript: TranscriptMessage[] | any[];
   extractedSpec?: ProjectSpecification;
   projectId?: string;
+  metadata?: Record<string, any>;
 }
 
 export interface TranscriptMessage {
