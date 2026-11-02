@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { exec } from 'child_process';
 import util from 'util';
 import path from 'path';
@@ -138,11 +139,12 @@ export class VercelService {
 
     const data = await res.json();
     const deploymentId = data.id;
-    let liveUrl = data.url ? `https://${data.url}` : `https://${projectName}.vercel.app`;
+    const productionAlias = `https://${projectName}.vercel.app`;
+    let liveUrl = productionAlias;
 
-    // Poll until deployment is READY or 45 seconds elapsed
+    // Poll until deployment is READY or 60 seconds elapsed
     let attempts = 0;
-    while (attempts < 15) {
+    while (attempts < 25) {
       attempts++;
       await new Promise((r) => setTimeout(r, 2000));
       try {
@@ -152,18 +154,22 @@ export class VercelService {
         if (checkRes.ok) {
           const checkData = await checkRes.json();
           if (checkData.readyState === 'READY') {
-            if (checkData.url) liveUrl = `https://${checkData.url}`;
+            console.log(`[VercelService] Deployment ${deploymentId} is READY at ${productionAlias}`);
+            liveUrl = productionAlias;
             break;
+          } else if (checkData.readyState === 'ERROR') {
+            console.error(`[VercelService] Deployment failed with ERROR:`, checkData.error);
+            throw new Error(`Vercel build failed: ${JSON.stringify(checkData.error || checkData)}`);
           }
         }
-      } catch {
-        // continue
+      } catch (pollErr: any) {
+        if (pollErr.message.includes('Vercel build failed')) throw pollErr;
       }
     }
 
     return {
       deploymentUrl: liveUrl,
-      inspectUrl: data.inspectorUrl,
+      inspectUrl: data.inspectorUrl || `https://vercel.com/harshvshah12s-projects/${projectName}`,
       rawOutput: JSON.stringify(data),
     };
   }

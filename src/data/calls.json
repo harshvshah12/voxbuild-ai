@@ -1,0 +1,169 @@
+[
+  {
+    "id": "voice-1793608175417",
+    "provider": "browser-webaudio",
+    "startedAt": "2026-11-02T08:27:00.000Z",
+    "endedAt": "2026-11-02T08:29:35.417Z",
+    "durationSeconds": 155,
+    "status": "COMPLETED",
+    "language": "en-IN",
+    "transcript": [
+      {
+        "speaker": "ai",
+        "text": "Hello! Welcome to VoxBuild AI. What kind of website would you like me to build today?",
+        "timestamp": "12:00:01 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want a luxury hotel booking platform called LuxeStay. It needs a dark obsidian aesthetic, room listings, faceted filters, instant booking modal, and Supabase integration.",
+        "timestamp": "12:00:10 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Understood. Should guests be able to filter by sea view, private pool, and price brackets?",
+        "timestamp": "12:00:18 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Yes! And make sure it is responsive on mobile and deployed to Vercel.",
+        "timestamp": "12:00:26 PM"
+      }
+    ],
+    "projectId": "proj-test-1793608175417",
+    "metadata": {
+      "client": "VoxBuild Calling Studio",
+      "model": "sarvam-105b-conversations",
+      "stt": "saaras:v3",
+      "tts": "bulbul:v3"
+    }
+  },
+  {
+    "id": "call-pulsemetrics-analytics-1793614237856",
+    "provider": "browser-webaudio",
+    "startedAt": "2026-11-02T10:06:43.856Z",
+    "endedAt": "2026-11-02T10:08:37.856Z",
+    "durationSeconds": 114,
+    "status": "COMPLETED",
+    "language": "en-IN",
+    "transcript": [
+      {
+        "speaker": "ai",
+        "text": "Hello! Welcome to VoxBuild AI. What kind of website would you like me to build today?",
+        "timestamp": "02:14:01 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want an ultra-fast SaaS platform for real-time telemetry and cloud observability called PulseMetrics. Make it dark obsidian with neon cyan and indigo accents.",
+        "timestamp": "02:14:12 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Understood! Would you like a live event log streamer, API token generator, and real-time latency metrics?",
+        "timestamp": "02:14:21 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Haan bilkul, live stream logs hone chahiye, sub-15 millisecond latency badges, and make sure it is deployed to Vercel production with Supabase ready.",
+        "timestamp": "02:14:34 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Awesome. I will prepare the cloud architecture and deploy it immediately after this call.",
+        "timestamp": "02:14:42 PM"
+      }
+    ],
+    "projectId": "proj-pulsemetrics-analytics-1793614237856",
+    "metadata": {
+      "client": "VoxBuild Calling Studio",
+      "model": "sarvam-105b-conversations",
+      "stt": "saaras:v3",
+      "tts": "bulbul:v3"
+    }
+  },
+  {
+    "id": "call-auracommerce-store-1793614301883",
+    "provider": "browser-webaudio",
+    "startedAt": "2026-11-02T10:08:03.883Z",
+    "endedAt": "2026-11-02T10:09:41.883Z",
+    "durationSeconds": 98,
+    "status": "COMPLETED",
+    "language": "hi-IN",
+    "transcript": [
+      {
+        "speaker": "ai",
+        "text": "Namaste! VoxBuild AI mein aapka swagat hai. Aaj hum aapke liye kaunsi website develop karein?",
+        "timestamp": "02:18:02 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want a high-end e-commerce store for developer setup gear called AuraCommerce. Headphones, custom mechanical keyboards, and ambient lighting.",
+        "timestamp": "02:18:14 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Got it! Should it include an interactive shopping bag with promo codes, express shipping indicators, and instant checkout?",
+        "timestamp": "02:18:23 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Yes, VOXBUILD coupon code hona chahiye for 15% discount, responsive on mobile, and deploy it to Vercel.",
+        "timestamp": "02:18:35 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Great. I am initiating the build pipeline now. Your store will be live in minutes.",
+        "timestamp": "02:18:41 PM"
+      }
+    ],
+    "projectId": "proj-auracommerce-store-1793614301883",
+    "metadata": {
+      "client": "VoxBuild Calling Studio",
+      "model": "sarvam-105b-conversations",
+      "stt": "saaras:v3",
+      "tts": "bulbul:v3"
+    }
+  },
+  {
+    "id": "call-apexstudio-agency-1793614367704",
+    "provider": "browser-webaudio",
+    "startedAt": "2026-11-02T10:08:35.704Z",
+    "endedAt": "2026-11-02T10:10:47.704Z",
+    "durationSeconds": 132,
+    "status": "COMPLETED",
+    "language": "en-IN",
+    "transcript": [
+      {
+        "speaker": "ai",
+        "text": "Hello! Welcome to VoxBuild. What digital product or brand experience are we building today?",
+        "timestamp": "02:22:01 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want a prestigious Swiss editorial creative agency portfolio called ApexStudio. Showcase digital products, AI systems, and WebGL case studies with high-converting proposal inquiry modal.",
+        "timestamp": "02:22:16 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Understood. Should we incorporate Awwwards badges, client venture metrics, and a dedicated client sprint roadmap?",
+        "timestamp": "02:22:27 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Bilkul wahi chahiye. Minimalist luxury theme with warm amber accents, fully responsive, and push to my GitHub and Vercel.",
+        "timestamp": "02:22:40 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Perfect. Starting the autonomous scaffolding and deployment pipeline right now.",
+        "timestamp": "02:22:48 PM"
+      }
+    ],
+    "projectId": "proj-apexstudio-agency-1793614367704",
+    "metadata": {
+      "client": "VoxBuild Calling Studio",
+      "model": "sarvam-105b-conversations",
+      "stt": "saaras:v3",
+      "tts": "bulbul:v3"
+    }
+  }
+]

@@ -1,0 +1,664 @@
+[
+  {
+    "id": "proj-test-1793608175417",
+    "name": "LuxeStay Hotel Bookings",
+    "slug": "luxestay-hotel-bookings",
+    "callId": "voice-1793608175417",
+    "status": "DEPLOYED",
+    "progressPercent": 100,
+    "currentStepMessage": "Website successfully live at https://luxestay-hotel-bookings.vercel.app!",
+    "specification": {
+      "projectName": "LuxeStay Hotel Bookings",
+      "slug": "luxestay-hotel-bookings",
+      "tagline": "Built autonomously from natural voice dialogue via VoxBuild AI",
+      "description": "A production-ready web application created from phone transcript requirements.",
+      "projectType": "Full-stack web application",
+      "targetAudience": "Global visitors and authenticated customers",
+      "design": {
+        "theme": "midnight-obsidian",
+        "primaryColor": "#6366f1",
+        "accentColor": "#10b981",
+        "style": "Dark Obsidian Luxe & Swiss Editorial Bento",
+        "typography": "Inter, system-ui",
+        "animations": true,
+        "responsive": true
+      },
+      "features": [
+        "Dynamic interactive search and filter system",
+        "Responsive navigation with mobile drawer",
+        "Real-time booking and confirmation modals",
+        "Data persistence ready for Supabase PostgreSQL",
+        "Dark/Light aesthetic with smooth earned transitions"
+      ],
+      "pages": [
+        {
+          "name": "Home",
+          "route": "/",
+          "description": "High-converting hero section, catalog highlights, feature bento grid",
+          "sections": [
+            "Hero Banner",
+            "Key Features",
+            "Top Listings",
+            "Social Proof",
+            "Footer"
+          ]
+        },
+        {
+          "name": "Explore",
+          "route": "/explore",
+          "description": "Catalog with faceted filters, search, and detail modal preview",
+          "sections": [
+            "Filter Bar",
+            "Grid View",
+            "Detail Drawer"
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "route": "/dashboard",
+          "description": "Account overview, recent orders/bookings, and live status",
+          "sections": [
+            "Overview Stats",
+            "Active Bookings",
+            "Account Settings"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "Navbar",
+          "purpose": "Branded header with navigation links and action CTA"
+        },
+        {
+          "name": "Hero",
+          "purpose": "Headline, tagline, search input, and background glow"
+        },
+        {
+          "name": "CardGrid",
+          "purpose": "Card listing with pricing, badges, and book buttons"
+        },
+        {
+          "name": "BookingModal",
+          "purpose": "Interactive dialog for booking confirmation"
+        },
+        {
+          "name": "Footer",
+          "purpose": "Links, social icons, and copyright"
+        }
+      ],
+      "backend": {
+        "needsDatabase": true,
+        "databaseType": "supabase",
+        "needsAuth": false,
+        "authProvider": "supabase",
+        "hasAdminDashboard": true,
+        "apiEndpoints": [
+          "/api/listings",
+          "/api/bookings"
+        ]
+      },
+      "mockDataRequirements": [
+        "Curated hotel listings",
+        "User booking records"
+      ],
+      "deploymentRequested": true
+    },
+    "rawTranscript": [
+      {
+        "speaker": "ai",
+        "text": "Hello! Welcome to VoxBuild AI. What kind of website would you like me to build today?",
+        "timestamp": "12:00:01 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want a luxury hotel booking platform called LuxeStay. It needs a dark obsidian aesthetic, room listings, faceted filters, instant booking modal, and Supabase integration.",
+        "timestamp": "12:00:10 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Understood. Should guests be able to filter by sea view, private pool, and price brackets?",
+        "timestamp": "12:00:18 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Yes! And make sure it is responsive on mobile and deployed to Vercel.",
+        "timestamp": "12:00:26 PM"
+      }
+    ],
+    "createdAt": "2026-11-02T08:29:35.417Z",
+    "updatedAt": "2026-11-02T08:30:41.436Z",
+    "buildLogs": [],
+    "retryCount": 0,
+    "workspacePath": "X:\\Sarvam\\workspaces\\proj-test-1793608175417",
+    "githubRepoUrl": "https://github.com/harshvshah12/luxestay-hotel-bookings",
+    "githubRepoName": "luxestay-hotel-bookings",
+    "vercelDeploymentUrl": "https://luxestay-hotel-bookings.vercel.app"
+  },
+  {
+    "id": "proj-pulsemetrics-analytics-1793614237856",
+    "name": "PulseMetrics Cloud Analytics",
+    "slug": "pulsemetrics-analytics",
+    "callId": "call-pulsemetrics-analytics-1793614237856",
+    "status": "DEPLOYED",
+    "progressPercent": 100,
+    "currentStepMessage": "Website successfully live at https://pulsemetrics-analytics.vercel.app!",
+    "specification": {
+      "projectName": "PulseMetrics Cloud Analytics",
+      "slug": "pulsemetrics-analytics",
+      "tagline": "High-throughput real-time telemetry and edge analytics",
+      "description": "Distributed edge observability platform with sub-15ms global latency, live stream logs, and automated vector indexing.",
+      "projectType": "SaaS Cloud Observability Platform",
+      "targetAudience": "Cloud engineers, infrastructure architects, and developer teams",
+      "design": {
+        "theme": "midnight-obsidian",
+        "primaryColor": "#06b6d4",
+        "accentColor": "#6366f1",
+        "style": "Dark Obsidian Luxe with Neon Cyan Accents",
+        "typography": "Inter, system-ui",
+        "animations": true,
+        "responsive": true
+      },
+      "features": [
+        "Real-time event stream console with continuous WebSocket updates",
+        "Global edge cluster gauges with sub-15ms latency telemetry",
+        "Instant live API token generator modal with scoped access",
+        "DuckDB in-memory OLAP analytics topology"
+      ],
+      "pages": [
+        {
+          "name": "Telemetry",
+          "route": "/",
+          "description": "Live event stream, KPI counters, and cluster health",
+          "sections": [
+            "Hero",
+            "KPIs",
+            "Console",
+            "Architecture"
+          ]
+        },
+        {
+          "name": "Capabilities",
+          "route": "/explore",
+          "description": "Global edge routing and data topology teardown",
+          "sections": [
+            "Edge BGP",
+            "OLAP Engine",
+            "WASM Anomaly"
+          ]
+        },
+        {
+          "name": "Cloud Console",
+          "route": "/dashboard",
+          "description": "API access keys, quota consumption, and SLA gauges",
+          "sections": [
+            "Quota",
+            "Key Manager",
+            "Cluster State"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "Navbar",
+          "purpose": "Edge cloud branding and console launch CTA"
+        },
+        {
+          "name": "EventConsole",
+          "purpose": "Streaming live micro-telemetry events"
+        },
+        {
+          "name": "ApiKeyModal",
+          "purpose": "Instant token generation with scoped permissions"
+        },
+        {
+          "name": "Footer",
+          "purpose": "Edge SLA status and attribution"
+        }
+      ],
+      "backend": {
+        "needsDatabase": true,
+        "databaseType": "supabase",
+        "needsAuth": true,
+        "authProvider": "supabase",
+        "hasAdminDashboard": true,
+        "apiEndpoints": [
+          "/api/telemetry/ingest",
+          "/api/vector/index"
+        ]
+      },
+      "mockDataRequirements": [
+        "Edge telemetry stream",
+        "Cluster health states"
+      ],
+      "deploymentRequested": true
+    },
+    "rawTranscript": [
+      {
+        "speaker": "ai",
+        "text": "Hello! Welcome to VoxBuild AI. What kind of website would you like me to build today?",
+        "timestamp": "02:14:01 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want an ultra-fast SaaS platform for real-time telemetry and cloud observability called PulseMetrics. Make it dark obsidian with neon cyan and indigo accents.",
+        "timestamp": "02:14:12 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Understood! Would you like a live event log streamer, API token generator, and real-time latency metrics?",
+        "timestamp": "02:14:21 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Haan bilkul, live stream logs hone chahiye, sub-15 millisecond latency badges, and make sure it is deployed to Vercel production with Supabase ready.",
+        "timestamp": "02:14:34 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Awesome. I will prepare the cloud architecture and deploy it immediately after this call.",
+        "timestamp": "02:14:42 PM"
+      }
+    ],
+    "createdAt": "2026-11-02T10:08:37.856Z",
+    "updatedAt": "2026-11-02T10:11:41.880Z",
+    "buildLogs": [
+      {
+        "timestamp": "2026-11-02T10:08:37.856Z",
+        "phase": "INGEST",
+        "level": "success",
+        "message": "Ingested audio call transcript"
+      },
+      {
+        "timestamp": "2026-11-02T10:08:57.856Z",
+        "phase": "SPEC",
+        "level": "success",
+        "message": "Extracted specification for PulseMetrics Cloud Analytics"
+      },
+      {
+        "timestamp": "2026-11-02T10:09:17.856Z",
+        "phase": "SCAFFOLD",
+        "level": "success",
+        "message": "Generated 14 modern Next.js 15 App Router source files"
+      },
+      {
+        "timestamp": "2026-11-02T10:09:47.856Z",
+        "phase": "TEST",
+        "level": "success",
+        "message": "Syntax and layout checks passed"
+      },
+      {
+        "timestamp": "2026-11-02T10:10:07.856Z",
+        "phase": "DEPLOY",
+        "level": "success",
+        "message": "Pushed to GitHub https://github.com/harshvshah12/pulsemetrics-analytics"
+      },
+      {
+        "timestamp": "2026-11-02T10:10:27.856Z",
+        "phase": "DEPLOY",
+        "level": "success",
+        "message": "Production deployment verified: https://pulsemetrics-analytics.vercel.app"
+      },
+      {
+        "timestamp": "2026-11-02T10:10:37.856Z",
+        "phase": "NOTIFY",
+        "level": "success",
+        "message": "Dispatched completion notification"
+      }
+    ],
+    "retryCount": 0,
+    "workspacePath": "X:\\Sarvam\\workspaces\\pulsemetrics-analytics",
+    "githubRepoUrl": "https://github.com/harshvshah12/pulsemetrics-analytics",
+    "githubRepoName": "pulsemetrics-analytics",
+    "vercelDeploymentUrl": "https://pulsemetrics-analytics.vercel.app"
+  },
+  {
+    "id": "proj-auracommerce-store-1793614301883",
+    "name": "AuraCommerce Hardware Store",
+    "slug": "auracommerce-store",
+    "callId": "call-auracommerce-store-1793614301883",
+    "status": "DEPLOYED",
+    "progressPercent": 100,
+    "currentStepMessage": "Website successfully live at https://auracommerce-store.vercel.app!",
+    "specification": {
+      "projectName": "AuraCommerce Hardware Store",
+      "slug": "auracommerce-store",
+      "tagline": "Precision-machined hardware gear for developers & creators",
+      "description": "A curated flagship store for audiophiles and engineering setups with interactive bag, promo discount system, and express dispatch tracking.",
+      "projectType": "E-Commerce Retail Store",
+      "targetAudience": "Software engineers, designers, audiophiles, and power users",
+      "design": {
+        "theme": "midnight-obsidian",
+        "primaryColor": "#10b981",
+        "accentColor": "#14b8a6",
+        "style": "Minimalist Tech Store with Emerald Accents",
+        "typography": "Inter, system-ui",
+        "animations": true,
+        "responsive": true
+      },
+      "features": [
+        "Curated flagship hardware peripherals with high-res galleries",
+        "Interactive shopping bag drawer with quantity counters & subtotal calculation",
+        "Promo coupon engine (VOXBUILD grants 15% discount)",
+        "Order tracking hub with Bengaluru fulfillment dispatch timeline"
+      ],
+      "pages": [
+        {
+          "name": "Storefront",
+          "route": "/",
+          "description": "Featured products, category pills, and shopping bag",
+          "sections": [
+            "Hero",
+            "Perks Bar",
+            "Catalog",
+            "Bag Drawer"
+          ]
+        },
+        {
+          "name": "All Gear",
+          "route": "/explore",
+          "description": "Full hardware specifications and stock levels",
+          "sections": [
+            "Specs Grid",
+            "Warranty Info"
+          ]
+        },
+        {
+          "name": "Orders Hub",
+          "route": "/dashboard",
+          "description": "Tracking timeline, express dispatch status, and receipts",
+          "sections": [
+            "Shipment Status",
+            "Invoice Details"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "Navbar",
+          "purpose": "Branded header with bag counter"
+        },
+        {
+          "name": "ProductGrid",
+          "purpose": "Filterable hardware cards with instant add to bag"
+        },
+        {
+          "name": "CartDrawer",
+          "purpose": "Interactive slide-out bag with promo code input"
+        },
+        {
+          "name": "Footer",
+          "purpose": "Warranty details and dispatch guarantees"
+        }
+      ],
+      "backend": {
+        "needsDatabase": true,
+        "databaseType": "supabase",
+        "needsAuth": false,
+        "authProvider": "supabase",
+        "hasAdminDashboard": false,
+        "apiEndpoints": [
+          "/api/products",
+          "/api/orders/checkout"
+        ]
+      },
+      "mockDataRequirements": [
+        "Curated peripherals",
+        "Fulfillment tracking"
+      ],
+      "deploymentRequested": true
+    },
+    "rawTranscript": [
+      {
+        "speaker": "ai",
+        "text": "Namaste! VoxBuild AI mein aapka swagat hai. Aaj hum aapke liye kaunsi website develop karein?",
+        "timestamp": "02:18:02 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want a high-end e-commerce store for developer setup gear called AuraCommerce. Headphones, custom mechanical keyboards, and ambient lighting.",
+        "timestamp": "02:18:14 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Got it! Should it include an interactive shopping bag with promo codes, express shipping indicators, and instant checkout?",
+        "timestamp": "02:18:23 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Yes, VOXBUILD coupon code hona chahiye for 15% discount, responsive on mobile, and deploy it to Vercel.",
+        "timestamp": "02:18:35 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Great. I am initiating the build pipeline now. Your store will be live in minutes.",
+        "timestamp": "02:18:41 PM"
+      }
+    ],
+    "createdAt": "2026-11-02T10:09:41.883Z",
+    "updatedAt": "2026-11-02T10:12:47.701Z",
+    "buildLogs": [
+      {
+        "timestamp": "2026-11-02T10:09:41.883Z",
+        "phase": "INGEST",
+        "level": "success",
+        "message": "Ingested audio call transcript"
+      },
+      {
+        "timestamp": "2026-11-02T10:10:01.883Z",
+        "phase": "SPEC",
+        "level": "success",
+        "message": "Extracted specification for AuraCommerce Hardware Store"
+      },
+      {
+        "timestamp": "2026-11-02T10:10:21.883Z",
+        "phase": "SCAFFOLD",
+        "level": "success",
+        "message": "Generated 14 modern Next.js 15 App Router source files"
+      },
+      {
+        "timestamp": "2026-11-02T10:10:51.883Z",
+        "phase": "TEST",
+        "level": "success",
+        "message": "Syntax and layout checks passed"
+      },
+      {
+        "timestamp": "2026-11-02T10:11:11.883Z",
+        "phase": "DEPLOY",
+        "level": "success",
+        "message": "Pushed to GitHub https://github.com/harshvshah12/auracommerce-store"
+      },
+      {
+        "timestamp": "2026-11-02T10:11:31.883Z",
+        "phase": "DEPLOY",
+        "level": "success",
+        "message": "Production deployment verified: https://auracommerce-store.vercel.app"
+      },
+      {
+        "timestamp": "2026-11-02T10:11:41.883Z",
+        "phase": "NOTIFY",
+        "level": "success",
+        "message": "Dispatched completion notification"
+      }
+    ],
+    "retryCount": 0,
+    "workspacePath": "X:\\Sarvam\\workspaces\\auracommerce-store",
+    "githubRepoUrl": "https://github.com/harshvshah12/auracommerce-store",
+    "githubRepoName": "auracommerce-store",
+    "vercelDeploymentUrl": "https://auracommerce-store.vercel.app"
+  },
+  {
+    "id": "proj-apexstudio-agency-1793614367704",
+    "name": "ApexStudio Digital Agency",
+    "slug": "apexstudio-agency",
+    "callId": "call-apexstudio-agency-1793614367704",
+    "status": "DEPLOYED",
+    "progressPercent": 100,
+    "currentStepMessage": "Website successfully live at https://apexstudio-agency.vercel.app!",
+    "specification": {
+      "projectName": "ApexStudio Digital Agency",
+      "slug": "apexstudio-agency",
+      "tagline": "Award-winning Swiss editorial digital design & AI engineering",
+      "description": "Strategic brand design and software engineering studio crafting venture-backed digital artifacts, WebGL experiences, and spatial interfaces.",
+      "projectType": "Creative Digital Studio Portfolio",
+      "targetAudience": "Venture-backed startup founders, enterprise design teams, and tech leaders",
+      "design": {
+        "theme": "midnight-obsidian",
+        "primaryColor": "#f59e0b",
+        "accentColor": "#ea580c",
+        "style": "Swiss Editorial Bento Grid with Warm Amber Accents",
+        "typography": "Inter, system-ui",
+        "animations": true,
+        "responsive": true
+      },
+      "features": [
+        "Swiss editorial bento layout showcasing venture case studies",
+        "Awwwards SOTD honors and $84M+ venture capital impact badges",
+        "Interactive project inquiry modal with budget selector and scope definition",
+        "Client delivery portal with sprint milestone roadmap"
+      ],
+      "pages": [
+        {
+          "name": "Works",
+          "route": "/",
+          "description": "Hero manifesto, honors grid, and case study bento",
+          "sections": [
+            "Hero",
+            "Honors",
+            "Bento Grid",
+            "Inquiry Modal"
+          ]
+        },
+        {
+          "name": "Case Studies",
+          "route": "/explore",
+          "description": "Comprehensive design engineering teardowns",
+          "sections": [
+            "Archive",
+            "Metrics"
+          ]
+        },
+        {
+          "name": "Client Portal",
+          "route": "/dashboard",
+          "description": "Deliverable roadmap, milestone approvals, and handover",
+          "sections": [
+            "Sprint 03 Handover",
+            "Edge Targets"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "Navbar",
+          "purpose": "Studio navigation with proposal launch CTA"
+        },
+        {
+          "name": "CaseStudyBento",
+          "purpose": "Filterable works showcase with metrics"
+        },
+        {
+          "name": "InquiryModal",
+          "purpose": "Interactive client proposal submission"
+        },
+        {
+          "name": "Footer",
+          "purpose": "Global studio coordinates and copyright"
+        }
+      ],
+      "backend": {
+        "needsDatabase": true,
+        "databaseType": "supabase",
+        "needsAuth": false,
+        "authProvider": "supabase",
+        "hasAdminDashboard": false,
+        "apiEndpoints": [
+          "/api/inquiries",
+          "/api/case-studies"
+        ]
+      },
+      "mockDataRequirements": [
+        "Client case studies",
+        "Sprint delivery roadmap"
+      ],
+      "deploymentRequested": true
+    },
+    "rawTranscript": [
+      {
+        "speaker": "ai",
+        "text": "Hello! Welcome to VoxBuild. What digital product or brand experience are we building today?",
+        "timestamp": "02:22:01 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "I want a prestigious Swiss editorial creative agency portfolio called ApexStudio. Showcase digital products, AI systems, and WebGL case studies with high-converting proposal inquiry modal.",
+        "timestamp": "02:22:16 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Understood. Should we incorporate Awwwards badges, client venture metrics, and a dedicated client sprint roadmap?",
+        "timestamp": "02:22:27 PM"
+      },
+      {
+        "speaker": "user",
+        "text": "Bilkul wahi chahiye. Minimalist luxury theme with warm amber accents, fully responsive, and push to my GitHub and Vercel.",
+        "timestamp": "02:22:40 PM"
+      },
+      {
+        "speaker": "ai",
+        "text": "Perfect. Starting the autonomous scaffolding and deployment pipeline right now.",
+        "timestamp": "02:22:48 PM"
+      }
+    ],
+    "createdAt": "2026-11-02T10:10:47.704Z",
+    "updatedAt": "2026-11-02T10:13:56.586Z",
+    "buildLogs": [
+      {
+        "timestamp": "2026-11-02T10:10:47.704Z",
+        "phase": "INGEST",
+        "level": "success",
+        "message": "Ingested audio call transcript"
+      },
+      {
+        "timestamp": "2026-11-02T10:11:07.704Z",
+        "phase": "SPEC",
+        "level": "success",
+        "message": "Extracted specification for ApexStudio Digital Agency"
+      },
+      {
+        "timestamp": "2026-11-02T10:11:27.704Z",
+        "phase": "SCAFFOLD",
+        "level": "success",
+        "message": "Generated 14 modern Next.js 15 App Router source files"
+      },
+      {
+        "timestamp": "2026-11-02T10:11:57.704Z",
+        "phase": "TEST",
+        "level": "success",
+        "message": "Syntax and layout checks passed"
+      },
+      {
+        "timestamp": "2026-11-02T10:12:17.704Z",
+        "phase": "DEPLOY",
+        "level": "success",
+        "message": "Pushed to GitHub https://github.com/harshvshah12/apexstudio-agency"
+      },
+      {
+        "timestamp": "2026-11-02T10:12:37.704Z",
+        "phase": "DEPLOY",
+        "level": "success",
+        "message": "Production deployment verified: https://apexstudio-agency.vercel.app"
+      },
+      {
+        "timestamp": "2026-11-02T10:12:47.704Z",
+        "phase": "NOTIFY",
+        "level": "success",
+        "message": "Dispatched completion notification"
+      }
+    ],
+    "retryCount": 0,
+    "workspacePath": "X:\\Sarvam\\workspaces\\apexstudio-agency",
+    "githubRepoUrl": "https://github.com/harshvshah12/apexstudio-agency",
+    "githubRepoName": "apexstudio-agency",
+    "vercelDeploymentUrl": "https://apexstudio-agency.vercel.app"
+  }
+]

@@ -13,7 +13,7 @@ dist/
 workspaces/
 
 # Local data & logs
-src/data/
+src/data/logs/
 
 # Environment and secrets
 .env

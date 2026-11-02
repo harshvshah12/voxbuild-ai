@@ -1,0 +1,26 @@
+{
+  "sarvamApiKey": "",
+  "sarvamVoiceModel": "bulbul:v3",
+  "sarvamSttModel": "saaras:v3",
+  "sarvamLlmModel": "sarvam-105b-conversations",
+  "sarvamSpeaker": "aditya",
+  "sarvamLanguageCode": "en-IN",
+  "telephonyProvider": "web-terminal",
+  "githubToken": "",
+  "githubUsername": "harshvshah12",
+  "vercelToken": "",
+  "notificationChannels": {
+    "whatsapp": true,
+    "whatsappNumber": "+919876543210",
+    "email": true,
+    "emailAddress": "harshvshah2019@gmail.com",
+    "dashboardToast": true
+  },
+  "usage": {
+    "totalCalls": 1,
+    "totalAudioSeconds": 45,
+    "totalTokens": 1420,
+    "estimatedCostInr": 12.5,
+    "monthlyBudgetInr": 5000
+  }
+}
