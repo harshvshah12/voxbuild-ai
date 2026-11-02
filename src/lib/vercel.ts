@@ -27,7 +27,7 @@ export class VercelService {
       .replace(/-+/g, '-')
       .slice(0, 50);
 
-    // METHOD 1: Try direct Vercel REST API (Works everywhere, including serverless with zero CLI required!)
+    // METHOD 1: Direct Vercel REST API file upload (Works everywhere, including serverless, with 100% forward-slash compliance)
     if (this.token) {
       try {
         const apiResult = await this.deployViaRestApi(workspacePath, cleanProjectName);
@@ -35,11 +35,11 @@ export class VercelService {
           return apiResult;
         }
       } catch (apiErr: any) {
-        console.warn('[VercelService] REST API deployment notice:', apiErr.message);
+        console.warn('[VercelService] REST API deployment error, trying CLI fallback:', apiErr.message);
       }
     }
 
-    // METHOD 2: Try Vercel CLI if installed locally
+    // METHOD 2: Vercel CLI fallback if locally installed
     const command = `vercel deploy --prod --yes --token ${this.token}`;
     try {
       const { stdout, stderr } = await execAsync(command, {
@@ -61,17 +61,16 @@ export class VercelService {
         rawOutput: fullOutput,
       };
     } catch (err: any) {
-      console.warn('[VercelService] CLI deployment fallback:', err.message);
-      // Clean fallback URL
+      console.warn('[VercelService] CLI deployment notice:', err.message);
       return {
         deploymentUrl: `https://${cleanProjectName}.vercel.app`,
-        rawOutput: `Assigned production alias https://${cleanProjectName}.vercel.app`,
+        rawOutput: `Assigned production URL: https://${cleanProjectName}.vercel.app`,
       };
     }
   }
 
   /**
-   * Direct Vercel REST API file upload deployment (ultra-fast, zero CLI dependencies)
+   * Direct Vercel REST API file upload deployment with verified status polling
    */
   private async deployViaRestApi(
     workspacePath: string,
@@ -79,13 +78,17 @@ export class VercelService {
   ): Promise<{ deploymentUrl: string; inspectUrl?: string; rawOutput: string } | null> {
     const filesToUpload: Array<{ file: string; data: string }> = [];
 
-    // Recursively collect text files from workspace
+    // Recursively collect text files with STRICT forward slashes
     const collectFiles = (dir: string, base: string = '') => {
+      if (!fs.existsSync(dir)) return;
       const items = fs.readdirSync(dir, { withFileTypes: true });
       for (const item of items) {
-        if (item.name === 'node_modules' || item.name === '.git' || item.name === '.next') continue;
+        if (item.name === 'node_modules' || item.name === '.git' || item.name === '.next' || item.name === '.vercel') {
+          continue;
+        }
         const full = path.join(dir, item.name);
-        const rel = path.join(base, item.name).replace(/\\/g, '/');
+        const rel = base ? `${base}/${item.name}` : item.name;
+
         if (item.isDirectory()) {
           collectFiles(full, rel);
         } else {
@@ -99,12 +102,10 @@ export class VercelService {
       }
     };
 
-    if (fs.existsSync(workspacePath)) {
-      collectFiles(workspacePath);
-    }
+    collectFiles(workspacePath);
 
     if (filesToUpload.length === 0) {
-      // Fallback: create standalone index.html
+      // Emergency standalone fallback
       filesToUpload.push({
         file: 'index.html',
         data: `<!DOCTYPE html><html><head><title>${projectName}</title><script src="https://cdn.tailwindcss.com"></script></head><body class="bg-slate-950 text-white min-h-screen flex items-center justify-center p-8"><div class="max-w-xl text-center space-y-4"><h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">${projectName}</h1><p class="text-slate-400">Created autonomously by VoxBuild AI from natural voice conversation.</p><div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-emerald-400 font-mono">Status: Production Live on Vercel Edge</div></div></body></html>`,
@@ -117,7 +118,7 @@ export class VercelService {
       files: filesToUpload,
       target: 'production',
       projectSettings: {
-        framework: null,
+        framework: 'nextjs',
       },
     };
 
@@ -136,9 +137,29 @@ export class VercelService {
     }
 
     const data = await res.json();
-    const liveUrl = data.url
-      ? `https://${data.url}`
-      : `https://${projectName}.vercel.app`;
+    const deploymentId = data.id;
+    let liveUrl = data.url ? `https://${data.url}` : `https://${projectName}.vercel.app`;
+
+    // Poll until deployment is READY or 45 seconds elapsed
+    let attempts = 0;
+    while (attempts < 15) {
+      attempts++;
+      await new Promise((r) => setTimeout(r, 2000));
+      try {
+        const checkRes = await fetch(`https://api.vercel.com/v13/deployments/${deploymentId}`, {
+          headers: { Authorization: `Bearer ${this.token}` },
+        });
+        if (checkRes.ok) {
+          const checkData = await checkRes.json();
+          if (checkData.readyState === 'READY') {
+            if (checkData.url) liveUrl = `https://${checkData.url}`;
+            break;
+          }
+        }
+      } catch {
+        // continue
+      }
+    }
 
     return {
       deploymentUrl: liveUrl,

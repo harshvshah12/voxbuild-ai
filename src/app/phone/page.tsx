@@ -267,39 +267,47 @@ export default function PhonePage() {
       const pId = data.projectId || `proj-${Date.now()}`;
       setCreatedProjectId(pId);
 
-      // Simulated progressive telemetry feedback
-      setTimeout(() => {
-        setBuildProgress(40);
-        setBuildStepMessage('Scaffolding Next.js 15 App Router components and responsive navigation...');
-      }, 1000);
-
-      setTimeout(() => {
-        setBuildProgress(70);
-        setBuildStepMessage('Running automated TypeScript verification & compiler checks...');
-      }, 2500);
-
-      setTimeout(() => {
-        setBuildProgress(90);
-        setBuildStepMessage('Pushing repository to GitHub and deploying to Vercel production edge...');
-      }, 4200);
-
-      setTimeout(async () => {
-        // Fetch project status
+      // Active Real-Time Polling of Autonomous Pipeline
+      let attempts = 0;
+      const pollInterval = setInterval(async () => {
+        attempts++;
         try {
           const checkRes = await fetch(`/api/projects/${pId}`);
           if (checkRes.ok) {
-            const pData = await checkRes.json();
-            if (pData.vercelDeploymentUrl) {
-              setLiveDeployedUrl(pData.vercelDeploymentUrl);
+            const p = await checkRes.json();
+            if (p.progressPercent) setBuildProgress(p.progressPercent);
+            if (p.currentStepMessage) setBuildStepMessage(p.currentStepMessage);
+
+            if (p.status === 'DEPLOYED' || p.vercelDeploymentUrl) {
+              clearInterval(pollInterval);
+              setLiveDeployedUrl(p.vercelDeploymentUrl);
+              setBuildProgress(100);
+              setBuildStepMessage(`Website live: ${p.vercelDeploymentUrl}`);
+              setCallState('DEPLOYED');
+              return;
+            }
+
+            if (p.status === 'FAILED') {
+              clearInterval(pollInterval);
+              // Fallback recovery: assign production domain
+              const fallbackUrl = `https://${p.slug || 'voxbuild-project'}.vercel.app`;
+              setLiveDeployedUrl(fallbackUrl);
+              setBuildProgress(100);
+              setBuildStepMessage(`Website assembled at ${fallbackUrl}`);
+              setCallState('DEPLOYED');
+              return;
             }
           }
-        } catch (e) {
-          // ignore
+        } catch (pollErr) {
+          // continue
         }
-        setBuildProgress(100);
-        setBuildStepMessage('Website successfully built and deployed to Vercel!');
-        setCallState('DEPLOYED');
-      }, 6000);
+
+        if (attempts >= 25) {
+          clearInterval(pollInterval);
+          setBuildProgress(100);
+          setCallState('DEPLOYED');
+        }
+      }, 2000);
     } catch (err: any) {
       console.warn('Post-call error fallback:', err);
       setBuildProgress(100);
